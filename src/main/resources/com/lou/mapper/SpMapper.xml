@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lou.mapper.SpMapper" >
+  <resultMap id="BaseResultMap" type="com.lou.pojo.Sp" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="VARCHAR" />
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="danjia" property="danjia" jdbcType="VARCHAR" />
+    <result column="tiaoma" property="tiaoma" jdbcType="VARCHAR" />
+    <result column="danwei" property="danwei" jdbcType="VARCHAR" />
+    <result column="zhekou" property="zhekou" jdbcType="VARCHAR" />
+    <result column="huiyuanjia" property="huiyuanjia" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, sid, sname, danjia, tiaoma, danwei, zhekou, huiyuanjia
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lou.pojo.SpExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lou.pojo.SpExample" >
+    delete from sp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lou.pojo.Sp" >
+    insert into sp (id, sid, sname, 
+      danjia, tiaoma, danwei, 
+      zhekou, huiyuanjia)
+    values (#{id,jdbcType=INTEGER}, #{sid,jdbcType=VARCHAR}, #{sname,jdbcType=VARCHAR}, 
+      #{danjia,jdbcType=VARCHAR}, #{tiaoma,jdbcType=VARCHAR}, #{danwei,jdbcType=VARCHAR}, 
+      #{zhekou,jdbcType=VARCHAR}, #{huiyuanjia,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lou.pojo.Sp" >
+    insert into sp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="danjia != null" >
+        danjia,
+      </if>
+      <if test="tiaoma != null" >
+        tiaoma,
+      </if>
+      <if test="danwei != null" >
+        danwei,
+      </if>
+      <if test="zhekou != null" >
+        zhekou,
+      </if>
+      <if test="huiyuanjia != null" >
+        huiyuanjia,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="danjia != null" >
+        #{danjia,jdbcType=VARCHAR},
+      </if>
+      <if test="tiaoma != null" >
+        #{tiaoma,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="zhekou != null" >
+        #{zhekou,jdbcType=VARCHAR},
+      </if>
+      <if test="huiyuanjia != null" >
+        #{huiyuanjia,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lou.pojo.SpExample" resultType="java.lang.Integer" >
+    select count(*) from sp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sp
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sname != null" >
+        sname = #{record.sname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.danjia != null" >
+        danjia = #{record.danjia,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tiaoma != null" >
+        tiaoma = #{record.tiaoma,jdbcType=VARCHAR},
+      </if>
+      <if test="record.danwei != null" >
+        danwei = #{record.danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhekou != null" >
+        zhekou = #{record.zhekou,jdbcType=VARCHAR},
+      </if>
+      <if test="record.huiyuanjia != null" >
+        huiyuanjia = #{record.huiyuanjia,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sp
+    set id = #{record.id,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=VARCHAR},
+      sname = #{record.sname,jdbcType=VARCHAR},
+      danjia = #{record.danjia,jdbcType=VARCHAR},
+      tiaoma = #{record.tiaoma,jdbcType=VARCHAR},
+      danwei = #{record.danwei,jdbcType=VARCHAR},
+      zhekou = #{record.zhekou,jdbcType=VARCHAR},
+      huiyuanjia = #{record.huiyuanjia,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lou.pojo.Sp" >
+    update sp
+    <set >
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="sname != null" >
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="danjia != null" >
+        danjia = #{danjia,jdbcType=VARCHAR},
+      </if>
+      <if test="tiaoma != null" >
+        tiaoma = #{tiaoma,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        danwei = #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="zhekou != null" >
+        zhekou = #{zhekou,jdbcType=VARCHAR},
+      </if>
+      <if test="huiyuanjia != null" >
+        huiyuanjia = #{huiyuanjia,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lou.pojo.Sp" >
+    update sp
+    set sid = #{sid,jdbcType=VARCHAR},
+      sname = #{sname,jdbcType=VARCHAR},
+      danjia = #{danjia,jdbcType=VARCHAR},
+      tiaoma = #{tiaoma,jdbcType=VARCHAR},
+      danwei = #{danwei,jdbcType=VARCHAR},
+      zhekou = #{zhekou,jdbcType=VARCHAR},
+      huiyuanjia = #{huiyuanjia,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

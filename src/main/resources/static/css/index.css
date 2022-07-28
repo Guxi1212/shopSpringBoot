@@ -1,0 +1,172 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-07-16 21:26:01
+ * @version $Id$
+ */
+
+/*CSS Reset*/
+html,body {	
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+.nav-link {
+  color: rgba(50,50,50,0.5);
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  color:black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*audio*/
+.audio-control {
+  overflow: hidden;
+  z-index:1000;
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.audio-control__text--wrap {
+     overflow:hidden;
+     display: inline-block;
+     vertical-align: middle;
+}
+.audio-control__text {
+  width:7.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  white-space: nowrap;
+}
+
+.audio-control__step-backward,
+.audio-control__playOrPause,
+.audio-control__step-forward {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  line-height: 2.5rem;
+  height:2.5rem;
+  width:2.5rem;
+}
+
+.audio-control__step-backward>i,
+.audio-control__playOrPause>i,
+.audio-control__step-forward>i{
+   vertical-align: middle;
+   line-height: 2.5rem
+} 
+
+/*nav*/
+.logout {
+  color:rgba(255, 255, 255, 0.7)
+}
+
+.logout:hover {
+  color:rgba(255,255,255,0.5)
+}
+/*sidebar*/
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 2.5rem 0 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 2.5rem);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar-sticky,.nav-top {
+	position:sticky;
+}
+
+/*content*/
+.content { 
+/*  padding-top: 2.5rem;*/
+  height:(100vh-2.5rem);
+  padding-left:  16.666667%;
+  width: 100%;
+  overflow: auto;
+}
+
+.form-left-img,.form-right-img{
+  position:absolute;
+  top:150px;
+  height: 300px;
+  width: 300px;
+  background-size: 100% 100%;
+}
+
+.form-left-img{
+  background: url(../src/img/form-left-img.gif) no-repeat center;
+  left:6%;
+}
+.blank-bg {
+  background: url("../src/img/blankbg.png") no-repeat center;
+  background-size: cover;
+}
+.form-right-img{
+  background: url(../src/img/form-right-img.gif) no-repeat center;
+  right:6%;
+}
+
+#content-iframe {
+  overflow: auto;
+}
+
+.table__btn-group {
+  text-align: center;
+}
+
+.table__btn-group .btn{
+  margin-right:  20px;
+}
+
+.section__table {
+  width: 100%;
+}
+
+.table {
+    text-align:center;
+}
+
+.section__form {
+  width: 33.333333%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.section__form input[class~="btn"] {
+  margin-top: 20px;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.btn-plus {
+  margin-right: 20px;
+}
+
+#numValue {
+	cursor:pointer;
+	margin-top: 20px;
+}
